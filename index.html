@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tatiana Soares Mendonça | Psicanalista e Terapeuta TRG</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azul: #314b86;
+      --azul-escuro: #243965;
+      --lavanda: #e9e8f7;
+      --lavanda-2: #d9ddf3;
+      --texto: #333747;
+      --muted: #6f7280;
+      --bege: #d7ad91;
+      --bg: #fbf8f7;
+      --branco: #ffffff;
+      --sombra: 0 18px 45px rgba(42, 48, 68, .12);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: radial-gradient(circle at top left, #fff 0%, #f7f2f1 48%, #f5f6fb 100%);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 38px auto;
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(49,75,134,.10);
+      box-shadow: var(--sombra);
+      overflow: hidden;
+    }
+
+    header {
+      min-height: 118px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 26px 76px 20px;
+      background: rgba(255,255,255,.92);
+    }
+
+    .brand h1 {
+      font-family: "Cinzel", serif;
+      color: var(--azul);
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      letter-spacing: 1.5px;
+      line-height: 1.1;
+      border-bottom: 1px solid rgba(49,75,134,.18);
+      padding-bottom: 8px;
+    }
+
+    .brand p {
+      font-size: .82rem;
+      color: #424755;
+      margin-top: 8px;
+    }
+
+    nav {
+      display: flex;
+      gap: 34px;
+      font-size: 1rem;
+      color: #353846;
+      white-space: nowrap;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 6px;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--azul);
+    }
+
+    nav a.active::after,
+    nav a:hover::after {
+      content: "";
+      width: 100%;
+      height: 2px;
+      background: var(--azul);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      border-radius: 10px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      grid-template-columns: 47% 53%;
+      background:
+        linear-gradient(115deg, rgba(255,255,255,.15), rgba(233,232,247,.85)),
+        linear-gradient(160deg, transparent 58%, rgba(87,111,175,.22) 58%, rgba(87,111,175,.22) 72%, rgba(87,111,175,.40) 72%);
+      overflow: hidden;
+    }
+
+    .hero-photo {
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      padding-left: 48px;
+      padding-top: 34px;
+    }
+
+    .hero-photo img {
+      width: min(430px, 100%);
+      height: 470px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 0 0 220px 220px;
+      filter: drop-shadow(0 24px 34px rgba(44, 55, 88, .16));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 56px 70px 56px 30px;
+    }
+
+    .hero-content h2 {
+      font-family: "Cinzel", serif;
+      font-size: clamp(2rem, 4vw, 3.7rem);
+      color: #3c4151;
+      line-height: 1.2;
+      font-weight: 700;
+      max-width: 620px;
+    }
+
+    .divider {
+      width: min(460px, 90%);
+      height: 1px;
+      background: rgba(60,65,81,.15);
+      margin: 18px 0 20px;
+    }
+
+    .hero-content p {
+      font-size: clamp(1rem, 1.7vw, 1.35rem);
+      color: #454a5a;
+      max-width: 560px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 28px;
+      padding: 15px 34px;
+      background: var(--azul);
+      color: #fff;
+      border-radius: 9px;
+      font-weight: 700;
+      box-shadow: 0 10px 18px rgba(49,75,134,.28);
+      transition: .25s ease;
+    }
+
+    .btn:hover {
+      background: var(--azul-escuro);
+      transform: translateY(-2px);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      padding: 34px 76px 28px;
+      background: #fff;
+      border-bottom: 1px solid rgba(49,75,134,.12);
+    }
+
+    .service {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 0 28px;
+      border-left: 1px solid rgba(49,75,134,.12);
+    }
+
+    .service:last-child {
+      border-right: 1px solid rgba(49,75,134,.12);
+    }
+
+    .service-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 15px;
+      background: linear-gradient(145deg, #efd7c6, #c99c7d);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 1.7rem;
+      box-shadow: 0 8px 18px rgba(151, 96, 62, .22);
+      flex: none;
+    }
+
+    .service h3 {
+      color: var(--azul);
+      font-size: 1.18rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .service p {
+      font-size: .84rem;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 52px 76px;
+      background: #fff;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .section-title h2 {
+      font-family: "Cinzel", serif;
+      color: #3d4252;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.1;
+    }
+
+    .section-title p {
+      margin: 14px auto 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .about-box {
+      background:
+        linear-gradient(160deg, rgba(255,255,255,.75), rgba(222,224,246,.78)),
+        linear-gradient(160deg, transparent 60%, rgba(87,111,175,.18) 60%);
+      border-radius: 8px;
+      padding: 38px;
+      text-align: center;
+      border: 1px solid rgba(49,75,134,.10);
+    }
+
+    .about-box p {
+      max-width: 900px;
+      margin: auto;
+      color: #4d5261;
+      font-size: 1.05rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .specialty-card {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 16px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid rgba(49,75,134,.10);
+      box-shadow: 0 12px 28px rgba(42,48,68,.08);
+      transition: .25s ease;
+    }
+
+    .specialty-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 34px rgba(42,48,68,.13);
+    }
+
+    .specialty-card img {
+      width: 76px;
+      height: 96px;
+      object-fit: cover;
+      border-radius: 13px;
+      flex: none;
+    }
+
+    .specialty-card h3 {
+      color: #222735;
+      font-size: 1.02rem;
+      margin-bottom: 3px;
+    }
+
+    .specialty-card p {
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.45;
+    }
+
+    .methods {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .method-card {
+      padding: 30px;
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, #ffffff, #f5f5fb);
+      border: 1px solid rgba(49,75,134,.10);
+      box-shadow: 0 15px 32px rgba(42,48,68,.08);
+    }
+
+    .method-card h3 {
+      font-family: "Cinzel", serif;
+      color: var(--azul);
+      font-size: 1.65rem;
+      margin-bottom: 12px;
+    }
+
+    .method-card p {
+      color: #555b68;
+    }
+
+    .credentials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .credential {
+      padding: 24px;
+      border-radius: 18px;
+      background: #fbfafc;
+      border: 1px solid rgba(49,75,134,.12);
+    }
+
+    .credential strong {
+      display: block;
+      color: var(--azul);
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .credential span {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .cta {
+      background:
+        linear-gradient(145deg, rgba(49,75,134,.92), rgba(36,57,101,.96)),
+        linear-gradient(160deg, transparent, rgba(255,255,255,.08));
+      color: white;
+      text-align: center;
+      padding: 56px 32px;
+    }
+
+    .cta h2 {
+      font-family: "Cinzel", serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      max-width: 720px;
+      margin: auto;
+      color: rgba(255,255,255,.82);
+    }
+
+    .cta-actions {
+      margin-top: 26px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--azul);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.55);
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      background: #fff;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .legal {
+      margin-top: 8px;
+      font-size: .78rem;
+      color: #8b8e98;
+    }
+
+    @media (max-width: 980px) {
+      .page {
+        width: 100%;
+        margin: 0;
+      }
+
+      header {
+        padding: 24px;
+        flex-direction: column;
+        text-align: center;
+        gap: 18px;
+      }
+
+      nav {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: .95rem;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-photo {
+        padding: 26px 24px 0;
+        order: 1;
+      }
+
+      .hero-photo img {
+        width: min(320px, 78vw);
+        height: 330px;
+        border-radius: 0 0 180px 180px;
+      }
+
+      .hero-content {
+        order: 2;
+        padding: 28px 24px 44px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 22px;
+      }
+
+      .service {
+        border: 1px solid rgba(49,75,134,.12);
+        border-radius: 14px;
+        padding: 14px;
+        background: #fff;
+      }
+
+      .service:last-child {
+        border-right: 1px solid rgba(49,75,134,.12);
+      }
+
+      section {
+        padding: 44px 22px;
+      }
+
+      .cards-grid,
+      .methods,
+      .credentials {
+        grid-template-columns: 1fr;
+      }
+
+      .about-box {
+        padding: 28px 20px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .brand h1 {
+        font-size: 1.45rem;
+      }
+
+      .brand p {
+        font-size: .74rem;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 14px 20px;
+      }
+
+      .specialty-card {
+        align-items: flex-start;
+      }
+
+      .specialty-card img {
+        width: 64px;
+        height: 82px;
+      }
+
+      .cta-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header>
+      <div class="brand">
+        <h1>Tatiana Soares Mendonça</h1>
+        <p>Psicanalista registrada no IPFD • Terapeuta Certificada em TRG pelo CITRG</p>
+      </div>
+
+      <nav>
+        <a href="#inicio" class="active">Início</a>
+        <a href="#sobre">Sobre Mim</a>
+        <a href="#terapias">Terapias</a>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+      <div class="hero-photo">
+        <img src="img/tatiana_foto.png" alt="Tatiana Soares Mendonça">
+      </div>
+
+      <div class="hero-content">
+        <h2>Explore sua Mente.<br>Entenda suas Emoções.</h2>
+        <div class="divider"></div>
+        <p>Psicanálise e TRG para acolher sua história, compreender dores emocionais e construir bem-estar.</p>
+        <a class="btn" href="https://www.trgclub.com/" target="_blank" rel="noopener">
+          Marque sua Consulta
+        </a>
+      </div>
+    </section>
+
+    <div class="services">
+      <article class="service">
+        <div class="service-icon">☁</div>
+        <div>
+          <h3>Psicanálise Individual</h3>
+          <p>Escuta, reflexão e autoconhecimento.</p>
+        </div>
+      </article>
+
+      <article class="service">
+        <div class="service-icon">♡</div>
+        <div>
+          <h3>Terapia de Casal</h3>
+          <p>Acolhimento para relações e conflitos.</p>
+        </div>
+      </article>
+
+      <article class="service">
+        <div class="service-icon">◎</div>
+        <div>
+          <h3>TRG</h3>
+          <p>Terapia breve para dores emocionais.</p>
+        </div>
+      </article>
+    </div>
+
+    <section id="sobre">
+      <div class="section-title">
+        <h2>Sobre Mim</h2>
+        <p>Atendimento online para adolescentes a partir de 14 anos, adultos, casais e famílias.</p>
+      </div>
+
+      <div class="about-box">
+        <p>
+          Sou Tatiana Soares Mendonça, psicanalista e terapeuta certificada em Terapia de Reprocessamento Generativo.
+          Meu trabalho une escuta acolhedora, reflexão e técnicas terapêuticas voltadas ao cuidado emocional,
+          respeitando a história, o ritmo e a necessidade de cada pessoa.
+        </p>
+        <a class="btn" href="#terapias">Conheça Mais</a>
+      </div>
+    </section>
+
+    <section id="terapias">
+      <div class="section-title">
+        <h2>Abordagens Terapêuticas</h2>
+        <p>Duas formas de cuidado emocional, cada uma com sua proposta. Porque aparentemente sofrer já não bastava, ainda precisamos escolher o método certo.</p>
+      </div>
+
+      <div class="methods">
+        <article class="method-card">
+          <h3>Psicanálise</h3>
+          <p>
+            Espaço de fala livre, escuta e reflexão. Ajuda a compreender sentimentos, repetições,
+            conflitos internos e sofrimentos psíquicos, respeitando a história e o tempo de cada pessoa.
+          </p>
+        </article>
+
+        <article class="method-card">
+          <h3>TRG</h3>
+          <p>
+            Terapia breve voltada para traumas, fobias, compulsões, ansiedade, depressão,
+            crises de pânico e dores emocionais, sem necessidade de detalhar eventos dolorosos.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="especialidades">
+      <div class="section-title">
+        <h2>Especialidades</h2>
+        <p>Temas emocionais trabalhados em atendimento individual, casal ou família.</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="specialty-card">
+          <img src="img/card-vicios.png" alt="Vícios e hábitos incontroláveis">
+          <div>
+            <h3>Vícios e Hábitos Incontroláveis</h3>
+            <p>Compulsões, padrões repetitivos e comportamentos difíceis de controlar.</p>
+          </div>
+        </article>
+
+        <article class="specialty-card">
+          <img src="img/card-autoestima.png" alt="Autoestima e autoconfiança">
+          <div>
+            <h3>Autoestima e Autoconfiança</h3>
+            <p>Medos, inseguranças, bloqueios emocionais e baixa autovalorização.</p>
+          </div>
+        </article>
+
+        <article class="specialty-card">
+          <img src="img/card-depressao.png" alt="Depressão">
+          <div>
+            <h3>Depressão</h3>
+            <p>Sofrimentos que afetam a forma de sentir, pensar, agir e se relacionar.</p>
+          </div>
+        </article>
+
+        <article class="specialty-card">
+          <img src="img/card-ansiedade.png" alt="Ansiedade">
+          <div>
+            <h3>Ansiedade</h3>
+            <p>Preocupação excessiva, medo, angústia, crises e sensação de alerta constante.</p>
+          </div>
+        </article>
+
+        <article class="specialty-card">
+          <img src="img/card-relacionamento.png" alt="Problemas de relacionamento">
+          <div>
+            <h3>Problemas de Relacionamento</h3>
+            <p>Conflitos afetivos, familiares, conjugais e dificuldades de comunicação.</p>
+          </div>
+        </article>
+
+        <article class="specialty-card">
+          <img src="img/card-autoconhecimento.png" alt="Autoconhecimento">
+          <div>
+            <h3>Autoconhecimento</h3>
+            <p>Compreensão de escolhas, emoções, padrões e conflitos pessoais.</p>
+          </div>
+        </article>
+
+        <article class="specialty-card">
+          <img src="img/card-familia.png" alt="Feridas emocionais familiares">
+          <div>
+            <h3>Feridas Emocionais</h3>
+            <p>Experiências familiares, dores antigas, traumas e bloqueios do passado.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>Credenciais</h2>
+        <p>Formação e certificações apresentadas pela profissional.</p>
+      </div>
+
+      <div class="credentials">
+        <article class="credential">
+          <strong>Psicanalista registrada</strong>
+          <span>Associação de Psicanálise – Instituto Fazendo a Diferença, IPFD.</span>
+        </article>
+
+        <article class="credential">
+          <strong>Terapeuta Certificada em TRG</strong>
+          <span>CITRG – Conselho Internacional de Terapia de Reprocessamento Generativo.</span>
+        </article>
+
+        <article class="credential">
+          <strong>Blue Member CITRG</strong>
+          <span>Certificação com validade apresentada até 11/2026.</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta" id="contato">
+      <h2>Agende sua sessão online</h2>
+      <p>
+        Os atendimentos têm duração média de 60 minutos e são realizados online,
+        com frequência recomendada de pelo menos uma sessão por semana.
+      </p>
+
+      <div class="cta-actions">
+        <a class="btn btn-light" href="https://www.trgclub.com/" target="_blank" rel="noopener">
+          Agendar pelo TRG Club
+        </a>
+
+        <a class="btn btn-outline" href="https://wa.me/558197775455" target="_blank" rel="noopener">
+          WhatsApp: 81 9777-5455
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Tatiana Soares Mendonça • Psicanalista e Terapeuta TRG</p>
+      <p class="legal">
+        Atendimento terapêutico. A profissional não se apresenta como psicóloga. Em casos de emergência, procure atendimento médico ou serviço especializado.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
